@@ -56,7 +56,7 @@ validation_generator = validation_datagen.flow_from_directory(
                         class_mode='binary')
 
 history = model.fit(train_generator,steps_per_epoch=5400//32, 
-                              epochs=10,
+                              epochs=30,
                               verbose=1,
                               validation_data=validation_generator,validation_steps=5400//32)
 acc = history.history['acc']
