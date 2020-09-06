@@ -28,7 +28,6 @@ model = tf.keras.models.Sequential([
     tf.keras.layers.Dropout(0.2),
     tf.keras.layers.Dense(64,activation='tanh'),
     tf.keras.layers.Dense(1,activation='sigmoid'),
-# YOUR CODE HERE
 ])
 
 model.compile(optimizer=RMSprop(lr=0.001), loss='binary_crossentropy', metrics=['acc'])
@@ -36,9 +35,9 @@ print(model.summary())
 TRAINING_DIR = '/home/siddharth.soni/cats_and_dogs/Training/'
 train_datagen = ImageDataGenerator(rescale=1.0/255.0)
 	#	width_shift_range=0.1, height_shift_range=0.1, 
-		#rotation_range=40,
-        	#shear_range=0.2,
-        	#zoom_range=0.2,
+	#	rotation_range=40,
+        #	shear_range=0.2,
+        #	zoom_range=0.2,
         #	horizontal_flip=True,
        	#	fill_mode='nearest')
 
@@ -58,7 +57,7 @@ validation_generator = validation_datagen.flow_from_directory(
                         batch_size=30,
                         target_size=(150,150),
                         class_mode='binary')
-# number of images is 5400
+# Number of images is about 12000 in training and 1200 in Validation set
 history = model.fit(train_generator,steps_per_epoch=12000//30, 
                               epochs=15,
                               verbose=1,
